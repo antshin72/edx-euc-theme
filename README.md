@@ -84,8 +84,8 @@ django 템플릿을 오버라이드가 불가능하다.
 ```
 EDXAPP_ENABLE_COMPREHENSIVE_THEMING: True
 EDXAPP_COMPREHENSIVE_THEME_DIRS:
-  - /edx/app/themes
-EDXAPP_DEFAULT_SITE_THEME: my-theme
+  - /edx/app/edxapp/themes
+EDXAPP_DEFAULT_SITE_THEME: prototype
 ```
 
 위의 코드가 배포되기 위해서는 ansible 명령을 수행하애 한다.
@@ -95,11 +95,12 @@ EDXAPP_DEFAULT_SITE_THEME: my-theme
 ```
 sudo /edx/bin/update edx-platform master
 ```
+**주의) master로 위의 명령을 돌리면 설치된 버전이 master로 업데이트됨!!!!**
 
 ### lms.env.json 파일을 직접 설정하여 배포
 lms.env.json 파일의 아래 코드를 수정하고 edxapp을 재기동한다.  
 ```
 ENABLE_COMPREHENSIVE_THEMING: true,
-COMPREHENSIVE_THEME_DIRS: ["/edx/app/themes" ],
-DEFAULT_SITE_THEME: "my-theme"
+COMPREHENSIVE_THEME_DIRS: ["/edx/app/edxapp/themes" ],
+DEFAULT_SITE_THEME: "prototype"
 ```
